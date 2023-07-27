@@ -100,6 +100,7 @@ bool z3Task(std::shared_ptr<JitCmdv2> cmd) {
 int main(int argc, char** argv) {
   int count = 0;
   int suc_count = 0;
+  int bad_count = 0;
   for (directory_entry& entry : directory_iterator(argv[1])) {
     int fd = open(entry.path().c_str(),O_RDONLY);
     ZeroCopyInputStream* rawInput = new google::protobuf::io::FileInputStream(fd);
@@ -108,16 +109,19 @@ int main(int argc, char** argv) {
       std::shared_ptr<JitCmdv2> cmd =  std::make_shared<JitCmdv2>();
       suc = readDelimitedFrom(rawInput,cmd.get());
       if (suc) {
-        if (z3Task(cmd)) 
+        if(cmd->cmd() == 1)
+          bad_count++;
+        else if (cmd->cmd() == 2 && z3Task(cmd)) 
           suc_count++;
         count++;
       } else {
         break;
       }
     } while(suc);
+    printf("handled %d constraints, solved %d, %d not for solving\n", count, suc_count, bad_count);
     delete rawInput;
     close(fd);
   }
-  printf("handled %d constraints, solved %d\n", count, suc_count);
+  printf("handled %d constraints, solved %d, %d not for solving\n", count, suc_count, bad_count);
   return 0;
 }

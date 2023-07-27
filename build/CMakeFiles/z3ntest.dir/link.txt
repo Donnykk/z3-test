@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O3 -std=c++14 -fPIC -L/usr/local/lib CMakeFiles/z3ntest.dir/z3ntest.cc.o CMakeFiles/z3ntest.dir/util.cc.o CMakeFiles/z3ntest.dir/z3solver.cc.o CMakeFiles/z3ntest.dir/rgd.pb.cc.o -o z3ntest  -lz3 -lprotobuf -lpthread -lboost_system -lboost_filesystem 

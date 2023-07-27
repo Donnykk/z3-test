@@ -1,0 +1,5 @@
+/target/work/z3-test/build/CMakeFiles/proto.dir
+/target/work/z3-test/build/CMakeFiles/z3test.dir
+/target/work/z3-test/build/CMakeFiles/z3ntest.dir
+/target/work/z3-test/build/CMakeFiles/edit_cache.dir
+/target/work/z3-test/build/CMakeFiles/rebuild_cache.dir

@@ -6,7 +6,6 @@ project(rgd C CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O3 -std=c++14 -fPIC -L/usr/local/lib")
 
-
 # Proto file
 get_filename_component(rgd_proto "rgd.proto" ABSOLUTE)
 get_filename_component(rgd_proto_path "${rgd_proto}" PATH)
@@ -38,7 +37,8 @@ target_link_libraries(z3test
   protobuf
   pthread
 	boost_system
-	boost_filesystem)
+	boost_filesystem
+)
 
 add_executable(z3ntest
   z3ntest.cc
@@ -51,4 +51,6 @@ target_link_libraries(z3ntest
   protobuf
   pthread
 	boost_system
-	boost_filesystem)
+	boost_filesystem
+)
+

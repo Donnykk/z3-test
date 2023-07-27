@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+ef890b2dc9a208eb6add99b61392f542 rgd.pb.cc
